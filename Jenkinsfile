@@ -42,12 +42,13 @@ pipeline {
             }
         }
 
-
         stage('Deploy to Kubernetes') {
             steps {
-                dir('k8s') {
-                    sh 'kubectl apply -f deployment.yaml'
-                    sh 'kubectl apply -f service.yaml'
+                withCredentials([file(credentialsId: 'kubeconfig-k3s', variable: 'KUBECONFIG')]) {
+                    dir('k8s') {
+                        sh 'kubectl apply -f deployment.yaml --validate=false'
+                        sh 'kubectl apply -f service.yaml --validate=false'
+                    }
                 }
             }
         }
