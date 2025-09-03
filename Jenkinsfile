@@ -1,6 +1,6 @@
 pipeline {
     environment {
-        TF_VAR_region = 'us-east-1'
+        TF_VAR_region = 'ap-southeast-1'
     }
     stages {
         stage('Checkout') {
