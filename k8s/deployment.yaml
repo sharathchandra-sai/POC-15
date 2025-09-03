@@ -16,7 +16,7 @@ spec:
       - name: myapp
         image: sharathkodati/sharathproject-1:latest
         ports:
-        - containerPort: 8080apiVersion: apps/v1
+        - containerPort: 8080
 kind: Deployment
 metadata:
   name: app-deployment
