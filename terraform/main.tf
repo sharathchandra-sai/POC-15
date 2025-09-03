@@ -4,7 +4,7 @@ provider "aws" {
 
 resource "aws_instance" "jenkins_server" {
   ami           = "ami-0933f1385008d33c4"
-  instance_type = "t3.medium"
+  instance_type = "t2.medium"
   tags = {
     Name = "JenkinsServer"
   }
