@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/sharathchandra-sai/POC-15.gi
+                git branch: 'main', url: 'https://github.com/sharathchandra-sai/POC-15.git'
             }
         }
 
