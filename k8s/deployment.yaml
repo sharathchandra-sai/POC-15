@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: your-dockerhub/project:latest
+        image: sharathkodati/sharathproject-1
         ports:
         - containerPort: 8080apiVersion: apps/v1
 kind: Deployment
@@ -32,6 +32,6 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: your-dockerhub/project:latest
+        image: sharathkodati/sharathproject-1
         ports:
         - containerPort: 8080
