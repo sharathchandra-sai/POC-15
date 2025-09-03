@@ -1,5 +1,5 @@
 provider "aws" {
-  region = var.region
+  region = ap-southeast-1
 }
 
 resource "aws_instance" "jenkins_server" {
