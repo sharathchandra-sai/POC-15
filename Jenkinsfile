@@ -27,14 +27,21 @@ pipeline {
             }
         }
 
+        
         stage('Build Docker Image') {
             steps {
-                dir('app') {
-                    sh 'docker build -t sharathkodati/sharathproject-1 .'
-                    sh 'docker push sharathkodati/sharathproject-1'
+                withCredentials([usernamePassword(credentialsId: 'docker-hub-creds', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+                    dir('app') {
+                        sh '''
+                            echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
+                            docker build -t sharathkodati/sharathproject-1 .
+                            docker push sharathkodati/sharathproject-1
+                        '''
+                    }
                 }
             }
         }
+
 
         stage('Deploy to Kubernetes') {
             steps {
